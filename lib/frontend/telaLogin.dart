@@ -100,15 +100,3 @@ class _telaLoginState extends State<telaLogin> {
     );
   }
 }
-// String _validaLogin(String text){
-//       if(text.isEmpty){
-//         return "Informe o login";
-//       }
-//       return _validaLogin(null!);
-//   }
-//   String _validaSenha(String text){
-//       if(text.isEmpty){
-//         return "Informe a senha";
-//       }
-//       return _validaSenha(null!);
-//   }
