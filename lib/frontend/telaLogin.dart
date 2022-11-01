@@ -1,4 +1,6 @@
 import 'package:appadot/frontend/telaCadastro.dart';
+import 'package:appadot/backend/usuarioHelper.dart';
+import 'package:appadot/backend/sistema.dart';
 import 'package:appadot/frontend/telaHome.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +15,7 @@ class _telaLoginState extends State<telaLogin> {
   GlobalKey<FormState> _chaveForm = new GlobalKey();
   TextEditingController _usuarioController = new TextEditingController();
   TextEditingController _senhaController = new TextEditingController();
+  bool mostraMsg = false;
 
   infoLogin(TextEditingController controller, String label, String hint,
       {bool obscure = false, validacao}) {
@@ -76,9 +79,23 @@ class _telaLoginState extends State<telaLogin> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18)),
                     backgroundColor: Color(0xff734a26)),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => telaHome()));
+                onPressed: () async {
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => telaHome()));
+                  if (_chaveForm.currentState!.validate()) {
+                        sistema.usuarioLogado = await UsuarioHelper().login(
+                            _usuarioController.text, _senhaController.text);
+                        if (sistema.usuarioLogado.id > 0) {
+                          Navigator.pop(context);
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (builder) => const telaHome()));
+                        } else {
+                          mostraMsg = true;
+                          setState(() {});
+                        }
+                      }
                 }),
             ElevatedButton(
                 child: Text(
