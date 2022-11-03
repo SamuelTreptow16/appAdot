@@ -1,6 +1,7 @@
-import 'package:appadot/frontend/telaCadastro.dart';
+import 'package:appadot/frontend/telaCadastroAdotante.dart';
 import 'package:appadot/backend/usuarioHelper.dart';
 import 'package:appadot/backend/sistema.dart';
+import 'package:appadot/frontend/telaEscolheCadastro.dart';
 import 'package:appadot/frontend/telaHome.dart';
 import 'package:flutter/material.dart';
 
@@ -18,11 +19,10 @@ class _telaLoginState extends State<telaLogin> {
   bool mostraMsg = false;
 
   infoLogin(TextEditingController controller, String label, String hint,
-      {bool obscure = false, validacao}) {
+      {bool obscure = false}) {
     return TextFormField(
       autofocus: true,
       controller: controller,
-      //validator: validacao,
       obscureText: obscure,
       style: TextStyle(
         color: Color(0xff734a26),
@@ -45,20 +45,14 @@ class _telaLoginState extends State<telaLogin> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Efetuar Login"),
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         key: _chaveForm,
         child: Form(
             child: Column(
           children: [
-            const SizedBox(
-              height: 10,
-            ),
-            const Icon(
-              Icons.account_circle,
-              size: 90,
-              color: Color(0xff734a26),
-            ),
+            Image.asset('assets/images/logoapptcc.png', height: 200),
             const SizedBox(
               height: 10,
             ),
@@ -109,7 +103,7 @@ class _telaLoginState extends State<telaLogin> {
                     backgroundColor: Color(0xff734a26)),
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => telaCadastro()));
+                      MaterialPageRoute(builder: (context) => telaEscolheCadastro()));
                 })
           ],
         )),

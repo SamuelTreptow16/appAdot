@@ -18,7 +18,7 @@ class _telaBemVindo extends State<telaBemVindo > {
 
   void avancarTelaBemVindo() {
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.push(
+      Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => telaLogin()));
     });
   }
@@ -29,8 +29,7 @@ class _telaBemVindo extends State<telaBemVindo > {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('assets/images/logoapptcc.png', 
-          )
+          Image.asset('assets/images/logoapptcc.png')
         ],
       ),
       );
