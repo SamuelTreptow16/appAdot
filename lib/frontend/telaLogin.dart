@@ -25,13 +25,13 @@ class _telaLoginState extends State<telaLogin> {
       controller: controller,
       obscureText: obscure,
       style: TextStyle(
-        color: Color(0xff734a26),
+        color: Colors.black,
         fontSize: 22,
       ),
       decoration: InputDecoration(
           labelText: label,
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-          labelStyle: TextStyle(color: Color(0xFF393e59), fontSize: 22),
+          labelStyle: TextStyle(color: Colors.black, fontSize: 22),
           hintText: hint),
       validator: (texto) {
         if (texto!.isEmpty) {
@@ -43,18 +43,22 @@ class _telaLoginState extends State<telaLogin> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Efetuar Login"),
-        automaticallyImplyLeading: false,
-      ),
+      backgroundColor: Colors.white,
+      // appBar: AppBar(
+      //   title: const Text("Efetuar Login"),
+      //   automaticallyImplyLeading: false,
+      // ),
       body: SingleChildScrollView(
         key: _chaveForm,
         child: Form(
             child: Column(
           children: [
-            Image.asset('assets/images/logoapptcc.png', height: 200),
+            SizedBox(height: 50,),
+            Image.asset('assets/images/logoapptcc5.png', height: 200),
+            Text("Bem-Vindo!",  style: TextStyle(fontSize: 24, color: Colors.black),),
+            Text("Para continuar, efetue seu login", style: TextStyle(fontSize: 16),),
             const SizedBox(
-              height: 10,
+              height: 25,
             ),
             infoLogin(_usuarioController, "Login", "Informe seu login"),
             const Divider(),
@@ -72,7 +76,7 @@ class _telaLoginState extends State<telaLogin> {
                     padding: EdgeInsets.fromLTRB(178, 10, 178, 10),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18)),
-                    backgroundColor: Color(0xff734a26)),
+                    backgroundColor: Color(0xffEDB640)),
                 onPressed: () async {
                   // Navigator.push(context,
                   //     MaterialPageRoute(builder: (context) => telaHome()));
@@ -91,20 +95,31 @@ class _telaLoginState extends State<telaLogin> {
                         }
                       }
                 }),
-            ElevatedButton(
-                child: Text(
-                  "Cadastrar-se",
-                  style: TextStyle(fontSize: 20),
-                ),
-                style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.fromLTRB(145, 10, 145, 10),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18)),
-                    backgroundColor: Color(0xff734a26)),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => telaEscolheCadastro()));
-                })
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    Padding(padding: EdgeInsets.fromLTRB(55, 0, 0, 0)),
+                    Text("Ainda não possui cadastro?", style: TextStyle(fontSize: 16),),
+                    TextButton(onPressed: () {
+                      Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => telaEscolheCadastro()));
+                    }, child: Text("Cadastre-se", style: TextStyle(fontSize: 16))),
+                  ],
+                )
+            // ElevatedButton(
+            //     child: Text(
+            //       "Cadastrar-se",
+            //       style: TextStyle(fontSize: 20),
+            //     ),
+            //     style: ElevatedButton.styleFrom(
+            //         padding: EdgeInsets.fromLTRB(145, 10, 145, 10),
+            //         shape: RoundedRectangleBorder(
+            //             borderRadius: BorderRadius.circular(18)),
+            //         backgroundColor: Color(0xff734a26)),
+            //     onPressed: () {
+            //       Navigator.push(context,
+            //           MaterialPageRoute(builder: (context) => telaEscolheCadastro()));
+            //     })
           ],
         )),
       ),

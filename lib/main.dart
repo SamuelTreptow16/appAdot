@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: tema.copyWith(
         colorScheme: tema.colorScheme.copyWith(
-          primary: Color(0xFF393e59)
+          primary: Color(0xFFEDB640)
         )
       ),
       home: const telaBemVindo()

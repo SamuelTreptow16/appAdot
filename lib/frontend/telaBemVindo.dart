@@ -29,7 +29,7 @@ class _telaBemVindo extends State<telaBemVindo > {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('assets/images/logoapptcc.png')
+          Image.asset('assets/images/logoapptcc5.png')
         ],
       ),
       );

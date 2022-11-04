@@ -14,17 +14,18 @@ class _telaEscolheCadastroState extends State<telaEscolheCadastro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Onde você se encaixa?"),
-      ),
+      // appBar: AppBar(
+      //   title: Text("Onde você se encaixa?"),
+      // ),
+      backgroundColor: Colors.white,
       body: Center(
           child: Column(
         children: [
           const SizedBox(
-            height: 15,
+            height: 120,
           ),
           Image.asset(
-            'assets/images/logoapptcc.png',
+            'assets/images/logoapptcc5.png',
             height: 200,
           ),
           const SizedBox(

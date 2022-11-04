@@ -19,6 +19,28 @@ class telaCadastroAdotanteState extends State<telaCadastroAdotante> {
   TextEditingController _enderecoController = TextEditingController();
   TextEditingController _telefoneController = TextEditingController();
 
+  infoAdotante(TextEditingController controller, String label, String hint,
+      {bool obscure = false}) {
+    return TextFormField(
+      autofocus: true,
+      controller: controller,
+      obscureText: obscure,
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 20,
+      ),
+      decoration: InputDecoration(
+          labelText: label,
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+          labelStyle: TextStyle(color: Colors.black, fontSize: 22),
+          hintText: hint),
+      validator: (texto) {
+        if (texto!.isEmpty) {
+          return "Campo Obrigatório";
+        }
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +51,13 @@ class telaCadastroAdotanteState extends State<telaCadastroAdotante> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text("Dados pessoais", style: TextStyle(fontSize: 18),),
-
+            SizedBox(height: 12,),
+            Text("Dados pessoais", style: TextStyle(fontSize: 20,), textAlign: TextAlign.left,),
+            SizedBox(height: 12,),
+            infoAdotante(_emailController, "E-mail", "Informe seu e-mail"),
+            SizedBox(height: 15,),
+            infoAdotante(_usuarioController, "Usuário", "Informe seu nome de usuário"),
+            //continuar fazendo campos de inserção de dados
           ],
         ),
       ),
