@@ -1,3 +1,4 @@
+import 'package:appadot/frontend/telaLogin.dart';
 import 'package:flutter/material.dart';
 
 class telaHome extends StatefulWidget {
@@ -13,6 +14,20 @@ class _telaHomeState extends State<telaHome> {
     return Scaffold(
       appBar: AppBar(
         title: Text(""),
+        automaticallyImplyLeading: false,
+        actions: [
+            IconButton(
+              icon: const Icon(Icons.logout_outlined),
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (builder) => telaLogin()));
+                //Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => const telaBemVindo()));
+              },
+            )
+          ]
       ),
     );
   }

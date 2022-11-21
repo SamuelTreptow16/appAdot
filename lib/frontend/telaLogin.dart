@@ -78,22 +78,22 @@ class _telaLoginState extends State<telaLogin> {
                         borderRadius: BorderRadius.circular(18)),
                     backgroundColor: Color(0xffEDB640)),
                 onPressed: () async {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => telaHome()));
-                  if (_chaveForm.currentState!.validate()) {
-                        sistema.usuarioLogado = await UsuarioHelper().login(
-                            _usuarioController.text, _senhaController.text);
-                        if (sistema.usuarioLogado.id > 0) {
-                          Navigator.pop(context);
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (builder) => const telaHome()));
-                        } else {
-                          mostraMsg = true;
-                          setState(() {});
-                        }
-                      }
+                   Navigator.push(context,
+                       MaterialPageRoute(builder: (context) => telaHome()));
+                  // if (_chaveForm.currentState!.validate()) {
+                  //       sistema.usuarioLogado = await UsuarioHelper().login(
+                  //           _usuarioController.text, _senhaController.text);
+                  //       if (sistema.usuarioLogado.id > 0) {
+                  //         Navigator.pop(context);
+                  //         Navigator.push(
+                  //             context,
+                  //             MaterialPageRoute(
+                  //                 builder: (builder) => const telaHome()));
+                  //       } else {
+                  //         mostraMsg = true;
+                  //         setState(() {});
+                  //       }
+                  //     }
                 }),
                 SizedBox(height: 10),
                 Row(
@@ -106,20 +106,6 @@ class _telaLoginState extends State<telaLogin> {
                     }, child: Text("Cadastre-se", style: TextStyle(fontSize: 16))),
                   ],
                 )
-            // ElevatedButton(
-            //     child: Text(
-            //       "Cadastrar-se",
-            //       style: TextStyle(fontSize: 20),
-            //     ),
-            //     style: ElevatedButton.styleFrom(
-            //         padding: EdgeInsets.fromLTRB(145, 10, 145, 10),
-            //         shape: RoundedRectangleBorder(
-            //             borderRadius: BorderRadius.circular(18)),
-            //         backgroundColor: Color(0xff734a26)),
-            //     onPressed: () {
-            //       Navigator.push(context,
-            //           MaterialPageRoute(builder: (context) => telaEscolheCadastro()));
-            //     })
           ],
         )),
       ),
